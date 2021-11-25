@@ -22,17 +22,25 @@ namespace LocalHost.Spotify.Controllers
         [Route("/api/user")]
         public async Task<IActionResult> UserProfile()
         {
-            var accessToken = await HttpContext.GetTokenAsync("access_token");
-            var spotify = new SpotifyClient(accessToken);
-
-            var user = await spotify.UserProfile.Current();
-
-            var viewModel = new UserProfile()
+            try
             {
-                Name = user.DisplayName,
-                Email = user.Email
-            };
-            return Ok(viewModel);
+                var accessToken = await HttpContext.GetTokenAsync("access_token");
+                var spotify = new SpotifyClient(accessToken);
+
+                var user = await spotify.UserProfile.Current();
+
+                var viewModel = new UserProfile()
+                {
+                    Name = user.DisplayName,
+                    Email = user.Email
+                };
+                return Ok(viewModel);
+            }
+            catch(Exception e)
+            {
+                return StatusCode(500, e.Message);
+            }
+            
         }
     }
 }

@@ -46,6 +46,7 @@ namespace LocalHost.Spotify
                     options.Scope.Clear();
                     options.Scope.Add("user-read-private");
                     options.Scope.Add("user-read-email");
+                    options.Scope.Add("user-follow-read");
 
                     //https://developer.spotify.com/documentation/general/guides/authorization/scopes/
                 })

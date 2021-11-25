@@ -12,7 +12,7 @@ export default class App extends React.Component {
 
     componentDidMount() {
         var self = this;
-
+        
         fetch("/api/user")
             .then(res => res.json())
             .then(user => {
@@ -33,7 +33,7 @@ export default class App extends React.Component {
                     />
                 </div>
                 <div className="app-content">
-                    Content
+                    <h1>Overskrift</h1>
                 </div>
 
                 

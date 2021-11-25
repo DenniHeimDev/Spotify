@@ -12,6 +12,8 @@ export default class UserProfile extends React.Component {
             <div className="user-profile">
                 <h1>{this.props.name}</h1>
                 <a href={`mailto:${this.props.email}`}>{this.props.email}</a>
+                <a href={`mailto:${this.props.email}`}>{this.props.email}</a>
+                <p>De Fuk</p>
             </div>
         );
     }
